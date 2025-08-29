@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive CSS & JavaScript Experience</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bringing Web Pages to Life!</h1>
+        <nav>
+            <a href="#part1">CSS3 Transitions</a>
+            <a href="#part2">JavaScript Functions</a>
+            <a href="#part3">CSS & JS Combo</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="part1">
+            <h2>Part 1: CSS3 Transitions and Animations</h2>
+            <div class="demo-row">
+                <button class="animated-btn" aria-label="Hover to animate">Hover Me!</button>
+                <span class="tip">Try hovering over the button!</span>
+            </div>
+            <div class="demo-row">
+                <div class="fading-box" id="fadingBox">I fade in and out</div>
+                <button id="toggleFadeBtn">Toggle Fade</button>
+            </div>
+            <div class="demo-row">
+                <label>
+                    Animation Speed:
+                    <input type="range" id="fadeSpeed" min="0.2" max="3" value="1" step="0.1">
+                    <span id="fadeSpeedValue">1</span>s
+                </label>
+            </div>
+            <div class="demo-row">
+                <button id="addItemBtn">Add Animated Item</button>
+                <ul id="animatedList" class="animated-list"></ul>
+            </div>
+        </section>
+
+        <section id="part2">
+            <h2>Part 2: JavaScript Functions</h2>
+            <div class="demo-row">
+                <button id="randomColorBtn">Change Box Color</button>
+                <div id="colorBox" tabindex="0" aria-label="Color Box">Color Me!</div>
+            </div>
+            <div class="demo-row">
+                <label for="num1">Number 1:</label>
+                <input type="number" id="num1" value="0">
+                <label for="num2">Number 2:</label>
+                <input type="number" id="num2" value="0">
+                <button id="sumBtn">Sum</button>
+                <p id="sumOutput"></p>
+            </div>
+            <div class="demo-row">
+                <button id="showScopeBtn">Show Scope Demo</button>
+                <p id="scopeOutput"></p>
+            </div>
+        </section>
+
+        <section id="part3">
+            <h2>Part 3: Combining CSS Animations & JavaScript</h2>
+            <div class="demo-row">
+                <button id="animateBoxBtn">Animate the Box!</button>
+                <div id="animatedBox" tabindex="0"></div>
+            </div>
+            <div class="demo-row">
+                <button id="showModalBtn">Show Modal</button>
+            </div>
+            <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+                <div class="modal-content">
+                    <span id="closeModalBtn" class="close" tabindex="0" aria-label="Close Modal">&times;</span>
+                    <h3 id="modalTitle">Sliding Modal 🎬</h3>
+                    <p>This is a sliding modal! Try pressing <kbd>Esc</kbd> to close.<br>
+                    <label>
+                        Change Modal Color:
+                        <input type="color" id="modalColorPicker" value="#ffffff">
+                    </label>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Made interactive with <span class="highlight">HTML</span>, <span class="highlight">CSS3</span> & <span class="highlight">JavaScript</span>!</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,304 @@
+:root {
+    --main-bg: #f5f7fa;
+    --accent: #2193b0;
+    --accent2: #6dd5ed;
+    --highlight: #f9d423;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*, *:before, *:after { box-sizing: inherit; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: var(--main-bg);
+    color: #222;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: #fff;
+    padding: 1.5rem 1rem 1rem 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+header h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.2rem;
+    letter-spacing: 0.02em;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border 0.2s;
+}
+nav a:hover, nav a:focus {
+    border-bottom: 2px solid var(--highlight);
+}
+
+main {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 0 24px rgba(33,147,176,0.08);
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h2 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+/* Demo row layout */
+.demo-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+/* Part 1: animated button */
+.animated-btn {
+    padding: 15px 32px;
+    font-size: 18px;
+    border: none;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.5s;
+    outline: none;
+}
+.animated-btn:hover, .animated-btn:focus {
+    transform: scale(1.12) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(33,147,176,0.2);
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+}
+
+/* Fading box with variable animation duration */
+.fading-box {
+    min-width: 180px;
+    height: 60px;
+    background: var(--highlight);
+    border-radius: 10px;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 600;
+    opacity: 1;
+    animation: fadeInOut 1s infinite alternate;
+    transition: box-shadow 0.25s;
+    box-shadow: 0 2px 8px rgba(249,212,35,0.16);
+}
+.fading-box.paused {
+    animation-play-state: paused;
+    opacity: 0.2;
+}
+@keyframes fadeInOut {
+    from { opacity: 1; transform: scale(1);}
+    to   { opacity: 0.2; transform: scale(1.07);}
+}
+
+/* Animated list items */
+.animated-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.animated-list li {
+    background: #e0f7fa;
+    padding: 0.6em 1.2em;
+    border-radius: 12px;
+    margin-bottom: 0.2em;
+    font-size: 1rem;
+    animation: popIn 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+@keyframes popIn {
+    from { transform: scale(0.5) translateY(40px); opacity: 0; }
+    to   { transform: scale(1) translateY(0);    opacity: 1; }
+}
+
+/* Part 2: Color box */
+#colorBox {
+    min-width: 120px;
+    height: 60px;
+    background: #b2ff59;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: background 0.5s, color 0.3s;
+    outline: none;
+}
+
+#colorBox:focus {
+    box-shadow: 0 0 0 3px #2193b088;
+}
+
+/* Inputs and labels */
+input[type="number"], input[type="range"], input[type="color"] {
+    border-radius: 5px;
+    border: 1px solid #ccd;
+    padding: 0.3em 0.5em;
+    font-size: 1rem;
+    margin-left: 0.3em;
+    margin-right: 0.3em;
+}
+input[type="range"] {
+    width: 90px;
+}
+label {
+    font-size: 1rem;
+    margin-right: 0.4em;
+}
+
+/* Scope output demo */
+#scopeOutput {
+    font-style: italic;
+    color: #444;
+}
+
+/* Part 3: Animating the box */
+#animatedBox {
+    margin: 0.5rem 0;
+    width: 64px;
+    height: 64px;
+    background: #2196f3;
+    border-radius: 10px;
+    transition: background 0.3s;
+    position: relative;
+    outline: none;
+    box-shadow: 0 2px 8px #2196f355;
+}
+#animatedBox:focus {
+    box-shadow: 0 0 0 3px #2193b088;
+}
+.animate {
+    animation: moveBox 1.1s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+@keyframes moveBox {
+    0%   { left: 0; background: #2196f3;}
+    60%  { left: 140px; background: #f44336;}
+    90%  { left: 110px; background: #ff9800;}
+    100% { left: 200px; background: #4caf50;}
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(33,147,176,0.18);
+    transition: opacity 0.3s;
+}
+.modal.show {
+    display: block;
+    animation: modalFadeIn 0.3s;
+}
+@keyframes modalFadeIn {
+    from { opacity: 0;}
+    to   { opacity: 1;}
+}
+.modal-content {
+    background: #fff;
+    margin: 80px auto;
+    padding: 24px 32px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 340px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-80px) scale(0.97);
+    transition: opacity 0.4s, transform 0.4s;
+    box-shadow: 0 6px 36px #2193b033;
+}
+.modal.show .modal-content {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+.close {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #2193b0;
+    user-select: none;
+}
+.close:focus {
+    outline: 2px solid #2193b0;
+}
+
+kbd {
+    background: #e0e0e0;
+    border-radius: 4px;
+    padding: 2px 5px;
+    font-size: 0.95em;
+    font-family: 'Consolas', monospace;
+}
+
+footer {
+    background: #f1f1f1;
+    margin-top: 2rem;
+    text-align: center;
+    color: #444;
+    padding: 1.2rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.highlight {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    main {
+        padding: 0.5rem;
+    }
+    .demo-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+    }
+    .modal-content {
+        padding: 14px 6vw;
+        width: 94vw;
+        min-width: 0;
+        max-width: 97vw;
+    }
+}
+.tip {
+    font-size: 0.97em;
+    color: #444;
+    font-style: italic;
+    margin-left: 0.5em;
+}
